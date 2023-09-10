@@ -7,5 +7,9 @@ public class Main {
         int b = calc.minus.apply(3, 1);
         int c = calc.devide.apply(a, b);
         calc.println.accept(c);
+        // Работа кода ограничена невозможностью деления на ноль.
+        // Решение: предусмотреть в методе обработку ошибки через выбрасывание исключения с комментарием
+        int p = calc.devideByZero.apply(4, 0);
+
     }
 }

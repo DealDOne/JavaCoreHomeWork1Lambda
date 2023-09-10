@@ -14,19 +14,26 @@ public class Calculator {
     BinaryOperator<Integer> minus = (x, y) -> x - y;
     BinaryOperator<Integer> multiply = (x, y) -> x * y;
     BinaryOperator<Integer> devide = (x, y) -> x / y;
+
+    BinaryOperator<Integer> devideByZero = (x, y) -> {
+        if (y != 0){
+           return x / y;
+        } else {
+            throw new ArithmeticException("На 0 делить нельзя");
+        }
+    };
+
     @FunctionalInterface
     public interface UnaryOperator<T>{
         T apply(T t);
     }
     UnaryOperator<Integer> pow = x -> x * x;
     UnaryOperator<Integer> abs = x -> x > 0 ? x : x * -1;
-
     @FunctionalInterface
     public interface Predicate<T>{
         boolean test(T t);
     }
     Predicate<Integer> isPositive = x -> x > 0;
-
     @FunctionalInterface
     public interface Consumer<T>{
         void accept(T t);
