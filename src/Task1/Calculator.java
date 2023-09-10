@@ -20,6 +20,13 @@ public class Calculator {
     }
     UnaryOperator<Integer> pow = x -> x * x;
     UnaryOperator<Integer> abs = x -> x > 0 ? x : x * -1;
+
+    @FunctionalInterface
+    public interface Predicate<T>{
+        boolean test(T t);
+    }
+    Predicate<Integer> isPositive = x -> x > 0;
+
     @FunctionalInterface
     public interface Consumer<T>{
         void accept(T t);
